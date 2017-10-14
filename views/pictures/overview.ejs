@@ -1,0 +1,31 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Welcome To Set of Pictures at Marinette!</h1>
+             <p>View all pictures uploaded by our users!</p>
+             <p>
+                <a class="btn btn-primary btn-large" href="/pictures/new">Add New Picture</a>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% pictures.forEach(function(picture){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= picture.image %>">
+                   <div class="caption">
+                       <h4><%= picture.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/pictures/<%= picture._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>
