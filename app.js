@@ -21,7 +21,8 @@ var seedDb  = require("./seeds");
 
 
 // Create db in Mongoose for This Web
-mongoose.connect("mongodb://localhost/first_blog_v1");
+var url = process.env.DATABASEURL || "mongodb://localhost/first_blog_v1"
+mongoose.connect(url);
 // seedDb();
 
 // Necessary Sets for Code
