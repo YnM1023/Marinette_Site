@@ -6,6 +6,7 @@
     width: 100%;
 }
 
+
 .thumbnail {
     padding: 0;
 }
@@ -17,3 +18,24 @@
 #delete-form {
     display: inline;
 }
+
+.jbt-picture{
+    background: url(https://i.imgur.com/DmRgNSL.jpg);
+    background-size: cover;
+    background-position: center; 
+}
+
+.jumbotron h1, .jumbotron h4{
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+            0px 8px 13px rgba(0,0,0,0.1),
+            0px 18px 23px rgba(0,0,0,0.1);
+            color:white;
+}
+
+.user-form {
+    margin: 10% auto;
+}
+
+
+
+
