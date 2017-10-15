@@ -1,27 +1,28 @@
 <% include ../partials/header.ejs %>
 
 <div class="container">
-     <header class="jumbotron jbt-picture">
-         <div class="container">
-             <h1>Welcome To Share Your Picture!</h1>
-             <h4> View all pictures shared by our users!</h4>
-             <p>
+    <header class="jumbotron jbt-picture">
+        <div class="container">
+            <h1>Welcome To Share Your Picture!</h1>
+            <h4> View all pictures shared by our users!</h4>
+            <p>
                 <a class="btn btn-primary btn-large" href="/pictures/new">Add New Picture</a>
-             </p>
-         </div>
-     </header>
+            </p>
+        </div>
+    </header>
      
-     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% pictures.forEach(function(picture){ %>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
-                   <img src="<%= picture.image %>">
-                   <div class="caption">
-                       <h4><%= picture.name %></h4>
-                   </div>
-                   <p>
-                       <a href="/pictures/<%= picture._id %>" class="btn btn-primary">More Info</a>
-                   </p>
+                    <div class="picture" style="background: url(<%= picture.image %>); background-size: cover; background-position: center; "></div>
+                    <div class="caption">
+                        <h4><%= picture.name %></h4>
+                        <h4><%= picture.tag %></h4>
+                    </div>
+                    <p>
+                        <a href="/pictures/<%= picture._id %>" class="btn btn-primary">More Info</a>
+                    </p>
                 </div>
             </div>
         <% }); %>
