@@ -1,5 +1,16 @@
 <% include ../partials/header.ejs %>
 
+<style>
+    body{
+        background:url(https://i.imgur.com/p557vur.png);
+        background-size:60%;
+        background-position:center 20%;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        
+    }
+</style>
+
 <div class="container">
     <header class="jumbotron jbt-picture">
         <div class="container">
@@ -42,7 +53,6 @@
                     <div class="picture" style="background: url(<%= picture.image %>); background-size: cover; background-position: center center; "></div>
                     <div class="caption">
                         <h4><%= picture.name %></h4>
-                        <h4><%= picture.tag %></h4>
                     </div>
                     <p>
                         <a href="/pictures/<%= picture._id %>" class="btn btn-primary">More Info</a>
@@ -61,7 +71,6 @@
                     <div class="picture" style="background: url(<%= picture.image %>); background-size: cover; background-position: center center; "></div>
                     <div class="caption">
                         <h4><%= picture.name %></h4>
-                        <h4><%= picture.tag %></h4>
                     </div>
                     <p>
                         <a href="/pictures/<%= picture._id %>" class="btn btn-primary">More Info</a>
