@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <p class="lead">Marinette Pictures</p>
+            <p class="lead"><%= picture.tag %> Picture</p>
             <div class="list-group">
                 <li class="list-group-item active">Info 1</li>
                 <li class="list-group-item">Info 2</li>
@@ -14,7 +14,7 @@
             <div class="thumbnail">
                 <img class="img-responsive" src="<%= picture.image %>">
                 <div class="caption-full">
-                    <h4 class="pull-right">Something</h4>
+                    <h4 class="pull-right">Copyright:<%= picture.copyright %></h4>
                     <h4><a><%=picture.name%></a></h4>
                     <p><%= picture.description %></p>
                     <p>

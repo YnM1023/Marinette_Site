@@ -10,8 +10,13 @@
             </p>
         </div>
     </header>
-    <h2 style="color:#FA8072"><i class="fa fa-tag" aria-hidden="true"></i><strong> ACG</strong></h2>
-    <hr>
+    <a href="#ACG" class="btn btn-info">ACG</a>
+    <a href="#PPs" class="btn btn-info">Photo-Person</a>
+    <a href="#PSy" class="btn btn-info">Photo-Scenery</a>
+    
+    
+    <h2 id="#ACG" style="color:#FA8072"><i class="fa fa-tag" aria-hidden="true"></i><strong> ACG</strong></h2>
+    <hr class="overview-hr">
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% Picture_ACG.forEach(function(picture){ %>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -29,8 +34,8 @@
         <% }); %>
     </div>
 
-    <h2 style="color:#DA70D6"><i class="fa fa-tag" aria-hidden="true"></i><strong> Photo-Person</strong></h2>
-    <hr>
+    <h2 id="PPs" style="color:#DA70D6"><i class="fa fa-tag" aria-hidden="true"></i><strong> Photo-Person</strong></h2>
+    <hr class="overview-hr">
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% Picture_PtP.forEach(function(picture){ %>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -48,8 +53,8 @@
         <% }); %>
     </div>
 
-    <h2 style="color:#40E0D0"><i class="fa fa-tag" aria-hidden="true"></i><strong> Photo-Scenery</strong></h2>
-    <hr>
+    <h2 id="PSy" style="color:#40E0D0"><i class="fa fa-tag" aria-hidden="true"></i><strong> Photo-Scenery</strong></h2>
+    <hr class="overview-hr">
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% Picture_PSc.forEach(function(picture){ %>
             <div class="col-md-3 col-sm-6 col-xs-12">

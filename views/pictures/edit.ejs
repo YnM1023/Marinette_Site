@@ -8,13 +8,21 @@
                     <input class="form-control" type="text" name="picture[name]" value="<%= picture.name %>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="picture[tag]" value="<%= picture.tag %>">
+                    <!--<input class="form-control" type="text" name="tag" placeholder="tag">-->
+                    <select class="form-control" name="picture[tag]"> 
+                        <option value="ACG" selected>ACG</option> 
+                        <option value="Photo-Person">Photo-Person</option>
+                        <option value="Photo-Scenery">Photo-Scenery</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <input class="form-control" type="text" name="picture[image]" value="<%= picture.image %>">
                 </div>
                 <div class="form-group">
                     <input class="form-control" type="text" name="picture[description]" value="<%= picture.description %>">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="picture[copyright]" value="<%= picture.copyright %>">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>

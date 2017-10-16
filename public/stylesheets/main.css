@@ -43,7 +43,7 @@ body{
     margin: 10% auto;
 }
 
-hr{
+hr.overview-hr{
     overflow: visible; /* For IE */
     height: 30px;
     border-style: solid;
@@ -52,7 +52,7 @@ hr{
     border-radius: 20px;
 }
 
-hr:before{
+hr.overview-hr:before{
     display: block;
     content: "";
     height: 30px;

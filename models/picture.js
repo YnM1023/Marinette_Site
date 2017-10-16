@@ -5,6 +5,7 @@ var PictureSchema = new mongoose.Schema({
    tag: String,
    image: String,
    description: String,
+   copyright: String,
    author: {
       id: {
          type: mongoose.Schema.Types.ObjectId,
