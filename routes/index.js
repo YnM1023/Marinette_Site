@@ -9,8 +9,26 @@ router.get("/", function(req, res){
     res.render("home");
 });
 
+// profile page of current user
 router.get("/profile", middleware.isLoggedIn, function(req,res){
-    res.render("profile");
+    res.render("profile/profile");
+});
+
+// edit form for user profile
+router.get("/profile/edit",middleware.isLoggedIn,function(req, res){
+    res.render("profile/edit");
+});
+
+// Update profile router
+router.put("/profile/edit",middleware.isLoggedIn,function(req,res){
+    // update the profile of current user
+    User.findByIdAndUpdate(req.user._id,{$set:{avatar:req.body.avatar,gender:req.body.gender,info:req.body.info}},function(err,foundUser){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/profile");
+        }
+    });
 });
 
 // show register form

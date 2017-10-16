@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs %>
+
+<h1>This is the profile page of <%= currentUser.username %> </h1>
+<h4>THis is your avatar!</h4>
+<img src="<%= currentUser.avatar %>" class="thumbnail">
+<h4>Gender: <%= currentUser.gender %></h4>
+<p><%= currentUser.info %></p>
+
+
+<a href="/profile/edit">Edit</a>
+
+<% include ../partials/footer.ejs %>

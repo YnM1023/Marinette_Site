@@ -5,9 +5,10 @@
         <div class="col-md-3">
             <p class="lead"><%= picture.tag %> Picture</p>
             <h3><%= author.username %></h3>
-            <img src="<%= author.avatar %>" class="thumbnail">
+            <div class="picture" style="background: url(<%= author.avatar %>); background-size: cover; background-position: center center; "></div>
+            <h3>Gender: <%= author.gender %></h3>
             <h3>What's Up</h3>
-            <p>Something to say</p>
+            <p><%= author.info %></p>
         </div>
         <div class="col-md-9">
             <div class="thumbnail">
