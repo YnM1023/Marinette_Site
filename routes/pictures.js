@@ -1,6 +1,7 @@
 var express = require("express");
 var router  = express.Router();
 var Picture = require("../models/picture");
+var User    = require("../models/user");
 var middleware = require("../middleware");
 
 // OVERVIEW - show all blogs at one page
@@ -61,16 +62,18 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     });
 });
 
-// SHOW - show the specified blog
+// SHOW - show the specified picture
 router.get("/:id", function(req, res){
-    Picture.findById(req.params.id).populate("comments").exec(function(err, foundPicture){
+    Picture.findById(req.params.id).populate(["comments"]).exec(function(err, foundPicture){
         if(err || !foundPicture){
             console.log(err);
             req.flash('error', 'Sorry, that picture does not exist!');
             return res.redirect('/pictures');
         } else {
-            console.log(foundPicture)
-            res.render("pictures/show",{picture:foundPicture});
+            User.findById(foundPicture.author.id, function(err,foundUser){
+                console.log(foundUser);
+                res.render("pictures/show",{picture:foundPicture, author:foundUser});
+            })
         }
     });
 });

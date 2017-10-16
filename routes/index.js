@@ -2,10 +2,15 @@ var express  = require("express");
 var router   = express.Router();
 var passport = require("passport");
 var User     = require("../models/user");
+var middleware = require("../middleware");
 
 // root route
 router.get("/", function(req, res){
     res.render("home");
+});
+
+router.get("/profile", middleware.isLoggedIn, function(req,res){
+    res.render("profile");
 });
 
 // show register form
@@ -15,7 +20,7 @@ router.get("/register", function(req, res){
 
 // handle sign up logic
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
+    var newUser = new User({username: req.body.username, avatar:"https://i.imgur.com/K73KHQv.jpg"});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
