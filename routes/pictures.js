@@ -5,13 +5,31 @@ var middleware = require("../middleware");
 
 // OVERVIEW - show all blogs at one page
 router.get("/",function(req,res){
-    Picture.find({},function(err,allPictures){
+    var Picture_ACG;
+    var Picture_PtP;
+    var Picture_PSc;
+    Picture.find({tag:"ACG"},function(err,allSelected){
         if(err){
             console.log(err);
         }else{
-            res.render("pictures/overview",{pictures:allPictures});
+            Picture_ACG = allSelected;
+            Picture.find({tag:"Photo-Person"},function(err,allSelected){
+                if(err){
+                    console.log(err);
+                }else{
+                    Picture_PtP=allSelected;
+                    Picture.find({tag:"Photo-Scenery"},function(err,allSelected){
+                        if(err){
+                            console.log(err);
+                        }else{
+                            Picture_PSc=allSelected;
+                            res.render("pictures/overview",{Picture_ACG:Picture_ACG,Picture_PtP:Picture_PtP,Picture_PSc:Picture_PSc});
+                        }
+                    });
+                }
+            });
         }
-    })
+    });
 });
 
 //NEW - show form to create new campground

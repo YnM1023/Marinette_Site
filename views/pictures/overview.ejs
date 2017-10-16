@@ -10,12 +10,51 @@
             </p>
         </div>
     </header>
-     
+    <h2 style="color:#FA8072"><i class="fa fa-tag" aria-hidden="true"></i><strong> ACG</strong></h2>
+    <hr>
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
-        <% pictures.forEach(function(picture){ %>
-            <div class="col-md-3 col-sm-6">
+        <% Picture_ACG.forEach(function(picture){ %>
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="thumbnail">
-                    <div class="picture" style="background: url(<%= picture.image %>); background-size: cover; background-position: center; "></div>
+                    <div class="picture" style="background: url(<%= picture.image %>); background-size: cover; background-position: center center; "></div>
+                    <div class="caption">
+                        <h4><%= picture.name %></h4>
+                        <h4><%= picture.tag %></h4>
+                    </div>
+                    <p>
+                        <a href="/pictures/<%= picture._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <h2 style="color:#DA70D6"><i class="fa fa-tag" aria-hidden="true"></i><strong> Photo-Person</strong></h2>
+    <hr>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% Picture_PtP.forEach(function(picture){ %>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <div class="picture" style="background: url(<%= picture.image %>); background-size: cover; background-position: center center; "></div>
+                    <div class="caption">
+                        <h4><%= picture.name %></h4>
+                        <h4><%= picture.tag %></h4>
+                    </div>
+                    <p>
+                        <a href="/pictures/<%= picture._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <h2 style="color:#40E0D0"><i class="fa fa-tag" aria-hidden="true"></i><strong> Photo-Scenery</strong></h2>
+    <hr>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% Picture_PSc.forEach(function(picture){ %>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="thumbnail">
+                    <div class="picture" style="background: url(<%= picture.image %>); background-size: cover; background-position: center center; "></div>
                     <div class="caption">
                         <h4><%= picture.name %></h4>
                         <h4><%= picture.tag %></h4>
