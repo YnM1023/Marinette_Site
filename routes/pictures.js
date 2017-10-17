@@ -45,11 +45,12 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var tag = req.body.tag;
     var image = req.body.image;
     var desc = req.body.description;
+    var copyright = req.body.copyright;
     var author = {
         id: req.user._id,
         username: req.user.username
     }
-    var newPicture = {name: name, tag:tag, image: image, description: desc, author:author}
+    var newPicture = {name: name, tag:tag, image: image, description: desc, author:author,copyright:copyright}
     // Create a new picture and save to DB
     Picture.create(newPicture, function(err, newlyCreated){
         if(err){
