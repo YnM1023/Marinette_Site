@@ -62,11 +62,14 @@ var indexRoutes     = require("./routes/index");
 var blogsRoutes     = require("./routes/blogs");
 var picturesRoutes  = require("./routes/pictures");
 var commentsRoutes  = require("./routes/comments");
+var gamesRoutes     = require("./routes/games");
 
 app.use("/",indexRoutes);
 app.use("/blogs",blogsRoutes);
-app.use("/pictures/:id/comments",commentsRoutes);
 app.use("/pictures",picturesRoutes);
+app.use("/pictures/:id/comments",commentsRoutes);
+app.use("/",gamesRoutes);
+
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
