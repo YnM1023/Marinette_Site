@@ -87,7 +87,7 @@ router.get("/:id/edit", middleware.checkPictureOwnership, function(req, res){
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id",middleware.checkPictureOwnership, function(req, res){
-    // find and update the correct campground
+    // find and update the correcurrentct campground
     Picture.findByIdAndUpdate(req.params.id, req.body.picture, function(err, updatedPicture){
        if(err){
            res.redirect("/pictures");

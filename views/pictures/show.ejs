@@ -4,14 +4,31 @@
     <div class="row">
         <div class="col-md-3">
             <p class="lead"><%= picture.tag %> Picture</p>
-            <h3><%= author.username %></h3>
-            <div class="picture" style="background: url(<%= author.avatar %>); background-size: cover; background-position: center center; "></div>
-            <h3>Gender: <%= author.gender %></h3>
+            <h3 id="authorName"><%= author.username %>
+            <% if(author.gender === "male"){ %>
+                <i class="fa fa-mars" aria-hidden="true" style="color:#00BFFF"></i>
+            <% } else if(author.gender === "female"){ %>
+                <i class="fa fa-venus" aria-hidden="true" style="color:#FFC0CB"></i>    
+            <% } else { %>
+                <i class="fa fa-user" aria-hidden="true" style="color:#B0C4DE"></i>
+            <% } %>
+            </h3>
+            
+            <% if(author.gender === "male"){ %>
+                <style>#authorName{color:#00BFFF;}</style>
+            <% } else if(author.gender === "female"){ %>
+                <style>#authorName{color:#FFC0CB;}</style>   
+            <% } else { %>
+                <style>#authorName{color:#B0C4DE;}</style>
+            <% } %>
+            
+            <div class="avatar-picture-show" style="background: url(<%= author.avatar %>); background-size: cover; background-position: center center; "></div>
+            
             <h3>What's Up</h3>
             <p><%= author.info %></p>
         </div>
         <div class="col-md-9">
-            <div class="thumbnail">
+            <div class="thumbnail" id="full-thumbnail">
                 <img class="img-responsive" src="<%= picture.image %>">
                 <div class="caption-full">
                     <h4 class="pull-right">Copyright: <%= picture.copyright %></h4>

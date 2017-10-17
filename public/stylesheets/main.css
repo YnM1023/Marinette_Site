@@ -6,18 +6,24 @@ body{
     font-size:1.5em;
 }
 
+.avatar-picture-show {
+    width: 80%;
+    height: 0;
+    padding-bottom:80%;
+}
+
 .picture {
     width: 100%;
     height: 0;
+    padding:0;
     padding-bottom:100%;
 }
 
-
-.avatar{
+.avatar-profile{
     width:100%;
 }
 
-.thumbnail {
+#full-thumbnail, .thumbnail {
     padding: 0;
 }
 
@@ -35,7 +41,7 @@ body{
     background-size: cover;
 }
 
-.container h2, .jumbotron h1, .jumbotron h4{
+.jumbotron h1, .jumbotron h4{
     text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
             0px 8px 13px rgba(0,0,0,0.1),
             0px 18px 23px rgba(0,0,0,0.1);
@@ -47,25 +53,26 @@ body{
     margin: 10% auto;
 }
 
-hr.overview-hr{
-    overflow: visible; /* For IE */
-    height: 30px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px 0 0 0;
-    border-radius: 20px;
+
+hr.overview-hr { 
+  padding: 0;
+  border: none; 
+  border-top: medium double #8c8c8c; 
+  color: #8c8c8c; 
+  text-align: center; 
+} 
+hr.overview-hr:after { 
+  content: "§"; 
+  display: inline-block; 
+  position: relative; 
+  top: -0.7em; 
+  font-size: 1.5em; 
+  padding: 0 0.25em; 
+  background: #fff; 
 }
 
-hr.overview-hr:before{
-    display: block;
-    content: "";
-    height: 30px;
-    margin-top: -31px;
-    border-style: solid;
-    border-color: black;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
-}
+
+
 
 
 

@@ -1,12 +1,69 @@
 <% include ../partials/header.ejs %>
 
-<h1>This is the profile page of <%= currentUser.username %> </h1>
-<h4>THis is your avatar!</h4>
-<img src="<%= currentUser.avatar %>" class="thumbnail">
-<h4>Gender: <%= currentUser.gender %></h4>
-<p><%= currentUser.info %></p>
-
-
-<a href="/profile/edit">Edit</a>
-
+<div class="container"  id="profile-framework">
+    <div class="row">
+        <div class="col-md-4">
+            <h2 id="avatar">Avatar</h2>
+            <div class="picture" style="background: url(<%= currentUser.avatar %>); background-size: cover; background-position: center center; width:100%; padding-bottom:100%;"></div>
+        </div>
+        <div class="col-md-8">
+            <h1>Welcome To Profile Information Page!</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Current User:</h2>
+                        </div>
+                        <div class="panel-body">
+                            <h2><%= currentUser.username %></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Gender:</h3>
+                        </div>
+                        <div class="panel-body">
+                            <h2>
+                            <%= currentUser.gender %>
+                            <% if(currentUser.gender === "male"){ %>
+                                <i class="fa fa-mars" aria-hidden="true" style="color:#00BFFF"></i>
+                            <% } else if(currentUser.gender === "female"){ %>
+                                <i class="fa fa-venus" aria-hidden="true" style="color:#FFC0CB"></i>    
+                            <% } else { %>
+                                <i class="fa fa-user" aria-hidden="true" style="color:#B0C4DE"></i>
+                            <% } %>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">What's Up</h3>
+                </div>
+                <div class="panel-body">
+                    <%= currentUser.info %>
+                </div>
+            </div>
+            <a class="btn btn-warning btn-block" href="/profile/edit"><h3>Edit</h3></a>
+        </div>
+    </div>
+</div>
+<style>
+#profile-framework{
+    margin-top:7%;
+    padding-bottom:20px;
+    border:white solid 30px;
+    background-color: #333333;
+    border-radius: 15px;
+}
+h1,h2#avatar{
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+            0px 8px 13px rgba(0,0,0,0.1),
+            0px 18px 23px rgba(0,0,0,0.1);
+    color:white;    
+}
+</style>
 <% include ../partials/footer.ejs %>
