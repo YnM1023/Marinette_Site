@@ -23,8 +23,12 @@ body{
     width:100%;
 }
 
-#full-thumbnail, .thumbnail {
+.thumbnail {
     padding: 0;
+}
+
+.thumbnail img{
+    width:100%;
 }
 
 .thumbnail .caption-full {
