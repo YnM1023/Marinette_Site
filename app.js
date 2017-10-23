@@ -70,6 +70,10 @@ app.use("/pictures",picturesRoutes);
 app.use("/pictures/:id/comments",commentsRoutes);
 app.use("/",gamesRoutes);
 
+app.get("*",function(req,res){
+    res.send("not found!");
+});
+
 
 
 app.listen(process.env.PORT, process.env.IP, function(){

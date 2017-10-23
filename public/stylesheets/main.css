@@ -66,7 +66,6 @@ hr.overview-hr {
   text-align: center; 
 } 
 hr.overview-hr:after { 
-  content: "§"; 
   display: inline-block; 
   position: relative; 
   top: -0.7em; 

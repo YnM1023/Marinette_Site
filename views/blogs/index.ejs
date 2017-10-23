@@ -1,0 +1,29 @@
+<% include ../partials/header.ejs %>
+<link rel="stylesheet" href="stylesheets/blogs/index.css">
+
+<header class="jumbotron">
+         <div class="container text-center">
+             <h1>Welcome To Marinette Blog!</h1>
+         </div>
+</header>
+
+<div class="container"> 
+    <% tags.forEach(function(tag){ %>
+        <a href=<%= "#"+tag.name %> class="btn btn-info"><%= tag.name %></a>
+    <% }) %>
+    <div class="container">
+    <% tags.forEach(function(tag){ %>
+        <h2 id=<%= tag.name %> style="color:#FA8072"><i class="fa fa-tag" aria-hidden="true"></i><strong> <%= tag.name %> </strong></h2>
+        <hr class="overview-hr">
+        <% console.log(tag) %>
+        <% tag.blogs.forEach(function(blog){ %>
+            <a herf=<%= "./pages/"+blog.filename %> > This is a blog </a>
+        <% }) %>
+    <% }) %>
+    </div>
+    <% blogs.forEach(function(blog){ %>
+        <h4> <%= blog.title %> </h4>
+    <% }) %>
+</div>
+
+<% include ../partials/footer.ejs %>

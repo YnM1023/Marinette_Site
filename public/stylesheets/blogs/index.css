@@ -1,0 +1,10 @@
+body{
+    padding-top:50px;
+}
+
+.jumbotron{
+    padding:120px 0;
+    background: url(https://i.imgur.com/5Zk1N5P.jpg);
+    background-position: center center;
+    background-size: cover;
+}
