@@ -65,7 +65,7 @@ router.get("/:id", function(req, res){
             req.flash('error','Sorry, that blog dose not exist!')
             return res.redirect('/blogs');
         }else{
-            res.render("blogs/pages/"+foundBlog.filename);
+            res.render("blogs/pages/"+foundBlog.filename,{blog:foundBlog});
         }
     })
 });

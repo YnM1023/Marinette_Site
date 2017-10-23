@@ -4,6 +4,7 @@ var BlogSchema = new mongoose.Schema({
     filename: String,
 	title: String,
 	tag: String,
+	image: String,
 	description: String,
 	created: {type: Date, default: Date.now},
     message: [

@@ -6,6 +6,7 @@ var PictureSchema = new mongoose.Schema({
    image: String,
    description: String,
    copyright: String,
+   created: {type: Date, default: Date.now},
    author: {
       id: {
          type: mongoose.Schema.Types.ObjectId,

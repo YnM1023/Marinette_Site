@@ -3,8 +3,12 @@ body{
 }
 
 .jumbotron{
-    padding:120px 0;
+    padding:180px 0;
     background: url(https://i.imgur.com/5Zk1N5P.jpg);
     background-position: center center;
     background-size: cover;
+}
+
+.blog-box{
+    border: 3px solid black;
 }

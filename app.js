@@ -63,12 +63,14 @@ var blogsRoutes     = require("./routes/blogs");
 var picturesRoutes  = require("./routes/pictures");
 var commentsRoutes  = require("./routes/comments");
 var gamesRoutes     = require("./routes/games");
+var algorithmsRoutes = require("./routes/algorithms");
 
 app.use("/",indexRoutes);
 app.use("/blogs",blogsRoutes);
 app.use("/pictures",picturesRoutes);
 app.use("/pictures/:id/comments",commentsRoutes);
 app.use("/",gamesRoutes);
+app.use("/algorithms",algorithmsRoutes);
 
 app.get("*",function(req,res){
     res.send("not found!");

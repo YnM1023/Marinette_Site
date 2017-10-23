@@ -1,5 +1,32 @@
 <% include ../../partials/header.ejs %>
+<link rel="stylesheet" href="../stylesheets/blogs/index.css">
+<link rel="stylesheet" href="../stylesheets/blogs/first.css">
 
-<h1>Hi! This is the show page for a blog!</h1>
+<header class="jumbotron">
+    <div class="contasiner text-center">
+        <h1>Welcome To Marinette Blog!</h1>
+    </div>
+</header>
+
+<div class="container">
+    <h1 id="mainTitle"class="ui blue header" >Hello World! This is the first blog of Marinette !</h1>
+    <p><em>Post in <%= blog.created.toDateString() %></em></p>
+    <hr>
+    <p class="main-content">Nice to meet you! I am Marinette, the constructor of this site.</p>
+    <p class="main-content">I am studying in M.S.C.S. program of The University of Texas at Dallas, starting at fall 2017. </p>
+    <p class="main-content">
+        In last few years, I have got two bachelor degrees: Economics and Emgineering, both in Peking University. <strong>However, both of them are not interesting for me</strong>. 
+    </p>
+    <p class="main-content">
+        I had been confused about my future for a long time. 
+        During the days I was studying in Peking University, predecessors told me <strong><em>"Never leave just one choice for yourself"</em></strong>. So, in order to get more choices, 
+        I had do much: studying Enigeering to get fundamentals of science and technology, studying Economics to learn about business and financial sector, 
+        and winning the election of president of Student Union for political future.
+    </p>
+    <p class="main-content">Dramatically, I went on the only way I had never considered: study aboard in C.S., at last.</p>
+    <p class="main-content">I can say Computer Science is what I am really interseted in. And I am now studying hard to pursuit others.</p>
+    <p class="main-content">This site is the start point of my C.S. life. Look forward to more explorations!</p>
+    
+</div>
 
 <% include ../../partials/footer.ejs %>

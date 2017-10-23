@@ -1,0 +1,89 @@
+var express = require("express");
+var router  = express.Router();
+var User    = require("../models/user");
+var middleware = require("../middleware");
+
+// OVERVIEW - show all blogs at one page
+router.get("/",function(req,res){
+    res.render("algorithms/index")
+});
+
+// //NEW - show form to create new campground
+// router.get("/new", middleware.isLoggedIn, function(req, res){
+//   res.render("pictures/new"); 
+// });
+
+// //CREATE - add new picture to DB
+// router.post("/", middleware.isLoggedIn, function(req, res){
+//     // get data from form and add to picture array
+//     var name = req.body.name;
+//     var tag = req.body.tag;
+//     var image = req.body.image;
+//     var desc = req.body.description;
+//     var copyright = req.body.copyright;
+//     var author = {
+//         id: req.user._id,
+//         username: req.user.username
+//     }
+//     var newPicture = {name: name, tag:tag, image: image, description: desc, author:author,copyright:copyright}
+//     // Create a new picture and save to DB
+//     Picture.create(newPicture, function(err, newlyCreated){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             //redirect back to pictures page
+//             console.log(newlyCreated);
+//             res.redirect("/pictures");
+//         }
+//     });
+// });
+
+// // SHOW - show the specified picture
+// router.get("/:id", function(req, res){
+//     Picture.findById(req.params.id).populate(["comments"]).exec(function(err, foundPicture){
+//         if(err || !foundPicture){
+//             console.log(err);
+//             req.flash('error', 'Sorry, that picture does not exist!');
+//             return res.redirect('/pictures');
+//         } else {
+//             User.findById(foundPicture.author.id, function(err,foundUser){
+//                 console.log(foundUser);
+//                 res.render("pictures/show",{picture:foundPicture, author:foundUser});
+//             })
+//         }
+//     });
+// });
+
+// // EDIT CAMPGROUND ROUTE
+// router.get("/:id/edit", middleware.checkPictureOwnership, function(req, res){
+//     Picture.findById(req.params.id, function(err, foundPicture){
+//         res.render("pictures/edit", {picture: foundPicture});
+//     });
+// });
+
+// // UPDATE CAMPGROUND ROUTE
+// router.put("/:id",middleware.checkPictureOwnership, function(req, res){
+//     // find and update the correcurrentct campground
+//     Picture.findByIdAndUpdate(req.params.id, req.body.picture, function(err, updatedPicture){
+//       if(err){
+//           res.redirect("/pictures");
+//       } else {
+//           //redirect somewhere(show page)
+//           res.redirect("/pictures/" + req.params.id);
+//       }
+//     });
+// });
+
+// // DESTROY CAMPGROUND ROUTE
+// router.delete("/:id",middleware.checkPictureOwnership, function(req, res){
+//   Picture.findByIdAndRemove(req.params.id, function(err){
+//       if(err){
+//           res.redirect("/pictures");
+//       } else {
+//           req.flash("success","Picture has been deleted sucessfully!")
+//           res.redirect("/pictures");
+//       }
+//   });
+// });
+
+module.exports = router;

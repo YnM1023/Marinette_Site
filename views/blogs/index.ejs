@@ -14,16 +14,34 @@
     <div class="container">
     <% tags.forEach(function(tag){ %>
         <h2 id=<%= tag.name %> style="color:#FA8072"><i class="fa fa-tag" aria-hidden="true"></i><strong> <%= tag.name %> </strong></h2>
-        <hr class="overview-hr">
-        <% console.log(tag) %>
+        <div class="ui top  attached segment">
+        <div class="ui divided items">
         <% tag.blogs.forEach(function(blog){ %>
-            <a herf=<%= "./pages/"+blog.filename %> > This is a blog </a>
+            <div class="item">
+                <div class="image">
+                    <img src="<%= blog.image %>" >
+                </div>
+                <div class="content">
+                    <a class="header" href="/blogs/<%= blog._id %>"><%=blog.title%></a>
+                    <div class="meta">
+                        <span><%= blog.created.toDateString() %></span>
+                    </div>
+                    <div class="description">
+                        <p><%- blog.description.substring(0, 100) %>...</p>
+                    </div>
+                    <div class="extra">
+                        <a class="ui floated basic teal button" href="/blogs/<%= blog._id %>">
+                            Read More
+                            <i class="right chevron icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         <% }) %>
+        </div>
+        </div>
     <% }) %>
     </div>
-    <% blogs.forEach(function(blog){ %>
-        <h4> <%= blog.title %> </h4>
-    <% }) %>
 </div>
 
 <% include ../partials/footer.ejs %>
