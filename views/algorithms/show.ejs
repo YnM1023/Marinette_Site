@@ -1,0 +1,87 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead"> Topic Tag: <%= algorithm.tag %></p>
+            <h3 id="authorName"><%= author.username %>
+            <% if(author.gender === "male"){ %>
+                <i class="fa fa-mars" aria-hidden="true" style="color:#00BFFF"></i>
+            <% } else if(author.gender === "female"){ %>
+                <i class="fa fa-venus" aria-hidden="true" style="color:#FFC0CB"></i>    
+            <% } else { %>
+                <i class="fa fa-user" aria-hidden="true" style="color:#B0C4DE"></i>
+            <% } %>
+            </h3>
+            
+            <% if(author.gender === "male"){ %>
+                <style>#authorName{color:#00BFFF;}</style>
+            <% } else if(author.gender === "female"){ %>
+                <style>#authorName{color:#FFC0CB;}</style>   
+            <% } else { %>
+                <style>#authorName{color:#B0C4DE;}</style>
+            <% } %>
+            
+            <div class="avatar-picture-show" style="background: url(<%= author.avatar %>); background-size: cover; background-position: center center; "></div>
+            
+            <h3>What's Up</h3>
+            <p><%= author.info %></p>
+        </div>
+        <!--content of the algorithm topic-->
+        <div class="col-md-9">
+            <!--title & author-->
+            <h1><%= algorithm.title%></h1>
+            <p>
+                <em>Submitted By <%= algorithm.author.username %> in <%= algorithm.created.toDateString() %> </em>
+            </p>
+            <% if(currentUser && algorithm.author.id.equals(currentUser._id)){ %>
+                <a class="btn btn-xs btn-warning" href="/algorithms/<%= algorithm._id %>/edit">Edit</a>
+                <form id="delete-form" action="/algorithms/<%= algorithm._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-xs btn-danger">Delete</button>
+                </form>
+            <% }%>
+            <hr>
+            <!--problem description-->
+            <p>
+                <strong>Problem Description: </strong><%= algorithm.problem %>
+            </p>
+            <div class="thumbnail" id="full-thumbnail">
+                <img class="img-responsive" src="<%= algorithm.image %>">
+            </div>
+            <!--problem solution-->
+            <p>
+                <strong>Problem Solution: </strong><%= algorithm.solution %>
+            </p>
+            <!--problem conclusion-->
+            <p>
+                <strong>Problem Conclusion: </strong><%= algorithm.conclusion %>
+            </p>
+            
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/algorithms/<%= algorithm._id %>/messages/new">reply</a>
+                </div>
+                <hr>
+                <% algorithm.messages.forEach(function(message){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%= message.author.username %></strong>
+                            <span class="pull-right"> <%= message.created.toDateString() %> </span>
+                            <p>
+                                <%= message.text %> 
+                            </p>
+                        <% if(currentUser && message.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-xs btn-warning" href="/algorithms/<%= algorithm._id %>/messages/<%=message._id %>/edit">Edit</a>
+                            <form id="delete-form" action="/algorithms/<%=algorithm._id %>/messages/<%=message._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            </form>
+                        <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

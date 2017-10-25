@@ -1,7 +1,8 @@
-var Picture  = require("../models/picture");
-var Comment  = require("../models/comment");
-var User     = require("../models/user");
-var Blog     = require("../models/blog");
+var Picture   = require("../models/picture");
+var Comment   = require("../models/comment");
+var Algorithm = require("../models/algorithms");
+var User      = require("../models/user");
+var Blog      = require("../models/blog");
 
 // all the middleare goes here
 var middlewareObj = {};
@@ -46,6 +47,25 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
     }
 }
 
+middlewareObj.checkAlgorithmOwnership = function(req, res, next) {
+    if(req.isAuthenticated()){
+        Algorithm.findById(req.params.id, function(err, foundAlgo){
+            if(err || !foundAlgo){
+                req.flash('error',"Sorry, that algorithm topic does not exist!");
+                res.redirect("back");
+            } else if(foundAlgo.author.id.equals(req.user._id)) {
+                req.algorithm = foundAlgo;
+                next();
+            } else {
+                req.flash("error", "You don't have permission to do that");
+                res.redirect("back");
+            }
+        });
+    } else {
+        req.flash("error", "You need to be logged in to do that");
+        res.redirect("back");
+    }
+}
 // middlewareObj.checkProfileOwnership = function(req, res, next) {
 //     if(req.isAuthenticated()){
 //         User.findById(req.params.id, function(err, foundUser){

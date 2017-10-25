@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var Blog = require("./models/blog");
 var Picture = require("./models/picture");
+var TagAlgo = require("./models/tag-algo");
 var Comment   = require("./models/comment");
 var TagBlog   = require("./models/tag-blog");
 
@@ -86,28 +87,69 @@ var tags = [
     {name:"Others"}
 ];
 
+var tagsAlgo = [
+    {name:"Array"},
+    {name:"Linked-List"},
+    {name:"String"},
+    {name:"Hash-Table"},
+    {name:"Math"},
+    {name:"Two-Pointers"},
+    {name:"Dynamic-Programming"},
+    {name:"Backtracking"},
+    {name:"Stack"},
+    {name:"Heap"},
+    {name:"Greedy"},
+    {name:"Sort"},
+    {name:"Bit-Manipulation"},
+    {name:"Tree"},
+    {name:"Search"},
+    {name:"Union-Find"},
+    {name:"Graph"},
+    {name:"Recursion"},
+    {name:"Queue"},
+    {name:"Minimax"},
+    {name:"Map"},
+    {name:"Geometry"}
+];
+
 function seedDB(){
-    Blog.remove({},function(err){
+    // Blog.remove({},function(err){
+    //     if(err){
+    //         console.log(err);
+    //     }else{
+    //         console.log("remove all blogs!");
+    //     }
+    // });
+    // TagBlog.remove({},function(err){
+    //     if(err){
+    //         console.log(err);
+    //     }else{
+    //         console.log("remove all tag-blogs");
+    //         tags.forEach(function(seed){
+    //             TagBlog.create(seed,function(err, tag){
+    //                 if(err){
+    //                     console.log(err);
+    //                 }else{
+    //                     console.log(tag);
+    //                 }
+    //             })
+    //         });
+    //     }
+    // })
+    TagAlgo.remove({},function(err){
         if(err){
             console.log(err);
         }else{
-            console.log("remove all blogs!");
-        }
-    });
-    TagBlog.remove({},function(err){
-        if(err){
-            console.log(err);
-        }else{
-            console.log("remove all tag-blogs");
-            tags.forEach(function(seed){
-                TagBlog.create(seed,function(err, tag){
+            console.log("remove all tag-algos!");
+            tagsAlgo.forEach(function(seed){
+                TagAlgo.create(seed,function(err, tag){
                     if(err){
                         console.log(err);
                     }else{
                         console.log(tag);
                     }
                 })
-            });
+            })
         }
     })
 };

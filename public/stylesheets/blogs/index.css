@@ -12,3 +12,7 @@ body{
 .blog-box{
     border: 3px solid black;
 }
+
+.btn{
+    margin:3px;
+}

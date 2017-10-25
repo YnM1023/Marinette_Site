@@ -1,3 +1,47 @@
 <% include ../partials/header.ejs %>
-Comming Soon! Open in next week!
+<link rel="stylesheet" href="stylesheets/blogs/index.css">
+
+<header class="jumbotron">
+        <div class="container">
+            <h1>Welcome To Algorothms Forum!</h1>
+            <p>
+                <a class="btn btn-primary btn-large" href="/algorithms/new">Add New Picture</a>
+            </p>
+        </div>
+</header>
+
+<div class="container"> 
+    <% tags.forEach(function(tag){ %>
+        <a href=<%= "#"+tag.name %> class="btn btn-info"><%= tag.name %></a>
+    <% }) %>
+    <div class="container">
+    <% tags.forEach(function(tag){ %>
+        <h2 id=<%= tag.name %> style="color:#FA8072"><i class="fa fa-tag" aria-hidden="true"></i><strong> <%= tag.name %> </strong></h2>
+        <div class="ui top  attached segment">
+        <div class="ui divided items">
+        <% tag.algos.forEach(function(algo){ %>
+            <div class="item">
+                <div class="content">
+                    <a class="header" href="/algorithms/<%= algo._id %>"><%=algo.title%></a>
+                    <div class="meta">
+                        <span><%= algo.created.toDateString() %></span>
+                    </div>
+                    <div class="description">
+                        <p><%- algo.problem.substring(0, 100) %>...</p>
+                    </div>
+                    <div class="extra">
+                        <a class="ui floated basic teal button" href="/algorithms/<%= algo._id %>">
+                            Read More
+                            <i class="right chevron icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+        </div>
+    <% }) %>
+    </div>
+</div>
+
 <% include ../partials/footer.ejs %>
