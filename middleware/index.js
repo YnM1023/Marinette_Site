@@ -1,6 +1,7 @@
 var Picture   = require("../models/picture");
 var Comment   = require("../models/comment");
 var Algorithm = require("../models/algorithms");
+var Message   = require("../models/message");
 var User      = require("../models/user");
 var Blog      = require("../models/blog");
 
@@ -85,6 +86,26 @@ middlewareObj.checkAlgorithmOwnership = function(req, res, next) {
 //         res.redirect("back");
 //     }
 // }
+
+middlewareObj.checkMessageOwnership = function(req, res, next) {
+    if(req.isAuthenticated()){
+        Message.findById(req.params.message_id, function(err, foundMessage){
+            if(err || !foundMessage){
+                req.flash('error',"Sorry, that message does not exist!");
+                res.redirect("back");
+            } else if(foundMessage.author.id.equals(req.user._id)) {
+                req.message = foundMessage;
+                next();
+            } else {
+                req.flash("error", "You don't have permission to do that");
+                res.redirect("back");
+            }
+        });
+    } else {
+        req.flash("error", "You need to be logged in to do that");
+        res.redirect("back");
+    }
+}
 
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
