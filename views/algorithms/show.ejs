@@ -42,19 +42,22 @@
             <% }%>
             <hr>
             <!--problem description-->
+            <h4><strong>Problem Description: </strong></h4>
             <p id="article1">
-                <strong>Problem Description: </strong><%= algorithm.problem %>
+                <%= algorithm.problem %>
             </p>
             <div class="thumbnail" id="full-thumbnail">
                 <img class="img-responsive" src="<%= algorithm.image %>">
             </div>
             <!--problem solution-->
+            <h4><strong>Problem Solution: </strong></h4>
             <p id="article2">
-                <strong>Problem Solution: </strong><%= algorithm.solution %>
+                <%= algorithm.solution %>
             </p>
             <!--problem conclusion-->
+            <h4><strong>Problem Conclusion: </strong></h4>
             <p id="article3">
-                <strong>Problem Conclusion: </strong><%= algorithm.conclusion %>
+                <%= algorithm.conclusion %>
             </p>
             
             <div class="well">
