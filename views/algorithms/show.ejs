@@ -42,18 +42,18 @@
             <% }%>
             <hr>
             <!--problem description-->
-            <p class="article">
+            <p id="article1">
                 <strong>Problem Description: </strong><%= algorithm.problem %>
             </p>
             <div class="thumbnail" id="full-thumbnail">
                 <img class="img-responsive" src="<%= algorithm.image %>">
             </div>
             <!--problem solution-->
-            <p class="article">
+            <p id="article2">
                 <strong>Problem Solution: </strong><%= algorithm.solution %>
             </p>
             <!--problem conclusion-->
-            <p class="article">
+            <p id="article3">
                 <strong>Problem Conclusion: </strong><%= algorithm.conclusion %>
             </p>
             
@@ -86,8 +86,12 @@
 
 <script>
     $(function(){
-        var temp=  $(".article").text().replace(/\n/g,'<br/>');
-        $(".article").html(temp);
+        var temp1=  $("#article1").text().replace(/\n/g,'<br/>');
+        $("#article1").html(temp1;
+        var temp2=  $("#article2").text().replace(/\n/g,'<br/>');
+        $("#article2").html(temp2);
+        var temp3=  $("#article3").text().replace(/\n/g,'<br/>');
+        $("#article3").html(temp3);
     });
 </script>
 
