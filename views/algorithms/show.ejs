@@ -42,18 +42,18 @@
             <% }%>
             <hr>
             <!--problem description-->
-            <p>
+            <p class="article">
                 <strong>Problem Description: </strong><%= algorithm.problem %>
             </p>
             <div class="thumbnail" id="full-thumbnail">
                 <img class="img-responsive" src="<%= algorithm.image %>">
             </div>
             <!--problem solution-->
-            <p>
+            <p class="article">
                 <strong>Problem Solution: </strong><%= algorithm.solution %>
             </p>
             <!--problem conclusion-->
-            <p>
+            <p class="article">
                 <strong>Problem Conclusion: </strong><%= algorithm.conclusion %>
             </p>
             
@@ -83,5 +83,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+        var temp=  $(".article").text().replace(/\n/g,'<br/>');
+        $(".article").html(temp);
+    });
+</script>
 
 <% include ../partials/footer %>
