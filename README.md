@@ -10,8 +10,13 @@ First Marinette Home Page Constructed!
 4. Little tools and some games for fun
 
 Tech:
+
 UI: Bootstrap, Semantic UI
+
 DataBase: MongoDB
+
 Server-End: Node.js
+
 Framework: Express
+
 Deploy: Heroku
